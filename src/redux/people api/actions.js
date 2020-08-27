@@ -1,6 +1,6 @@
 import { fetch, success, fail } from './type'
 import Axios from 'axios'
-
+const postperpae=5
 export const fetchrequest = () => {
     return {
         type: fetch
@@ -22,7 +22,7 @@ export const requestfail = (err) => {
 
 export const makeapicall = () => {
     return (dispatch)=>{
-        return Axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false')
+        return Axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${postperpae}&page=1&sparkline=false`)
         .then((res) => dispatch(requestsuccess(res.data)))
         .catch((err) => dispatch(requestfail(err)))
     }       
