@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { makeapicall } from '../redux/people api/actions'
 import { nextapipage, prevapipage } from '../redux/people api/actions'
@@ -9,14 +9,16 @@ function People() {
     useEffect(() => {
         dispa(makeapicall(data.currentpage))
     }, [data.currentpage])
-    console.log(data)
+
     if (data.load) return (
         <Loading />
     )
     return (
-        <div className="table-responsive  table-responsive-sm table-responsive-md">
-            <table className="table table-hover">
-                <thead className="thead-dark">
+<div className="container">
+
+<div className="table-responsive table-responsive-sm table-responsive-md">
+            <table className="table table-hover" id="myTable">
+                <thead className="thead-dark" style={{textTransform : 'capitalize'}}>
                     <tr>
                         <th scope="col">symbol</th>
                         <th scope="col">coin</th>
@@ -50,6 +52,7 @@ function People() {
                 </ul>
             </nav>
         </div>
+</div>
     )
 }
 

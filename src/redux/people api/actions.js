@@ -2,7 +2,7 @@ import { fetch, success, fail , nextpage , prevpage} from './type'
 import Axios from 'axios'
 
 
-const postperpae=5  
+const postperpae = 10
 
 export const prevapipage =()=>{
     return{
