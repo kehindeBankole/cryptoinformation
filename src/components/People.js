@@ -1,24 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { makeapicall } from '../redux/people api/actions'
+import { changepage } from '../redux/people api/actions'
+import {Loading} from './Loading'
 function People() {
     const data = useSelector(state => state)
     const dispa = useDispatch()
     useEffect(() => {
-        dispa(makeapicall())
-    }, [])
+        dispa(makeapicall(data.currentpage))
+    }, [data.currentpage])
     console.log(data)
     if (data.load) return (
-        <div className="spinner-grow" role="status">
-            <span className="sr-only">Loading...</span>
-        </div>
+        <Loading/>
     )
     return (
         <div className="table-responsive  table-responsive-sm table-responsive-md">
             <table className="table table-hover">
                 <thead className="thead-dark">
                     <tr>
-                        <th scope="col">s/n</th>
                         <th scope="col">symbol</th>
                         <th scope="col">coin</th>
                         <th scope="col">current price</th>
@@ -30,7 +29,6 @@ function People() {
                     {data.data.map((d, index) => {
                         return (
                             <tr key={index}>
-                                <th scope="row">{index}</th>
                                 <td><img src={d.image} alt="coin symbol" width="40" height="40" /></td>
                                 <td>{d.name}</td>
                                 <td>{d.current_price}</td>
@@ -49,7 +47,7 @@ function People() {
                     {/* <li className="page-item"><a className="page-link">1</a></li>
                     <li className="page-item"><a className="page-link" >2</a></li>
                     <li className="page-item"><a className="page-link" >3</a></li> */}
-                    <li className="page-item">
+                    <li className="page-item" onClick={()=>dispa(changepage())}>
                         <p className="page-link" >Next</p>
                     </li>
                 </ul>
