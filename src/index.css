@@ -21,3 +21,6 @@ table{
 .page-item{
   cursor: pointer;
 }
+#myInput{
+  border-radius: 0;
+}

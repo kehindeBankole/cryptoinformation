@@ -1,5 +1,5 @@
 import React from 'react'
-
+import logo from '../asset/images.jpg'
 export const Nav = () => {
 
     function myFunction() {
@@ -27,8 +27,8 @@ export const Nav = () => {
 
     return (
         <div>
-            <nav class="navbar navbar-dark bg-dark mb-3 py-5">
-                <a class="navbar-brand">Navbar</a>
+            <nav class="navbar navbar-dark bg-dark mb-3 py-3">
+                <h1 className="text-white">KRYPTO</h1>
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" onKeyUp={() => myFunction()} id="myInput" placeholder="Search" aria-label="Search" />
                 </form>

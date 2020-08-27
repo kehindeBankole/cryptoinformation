@@ -33,7 +33,7 @@ function People() {
                             <tr key={index}>
                                 <td><img src={d.image} alt="coin symbol" width="40" height="40" /></td>
                                 <td>{d.name}</td>
-                                <td>{d.current_price}</td>
+                                <td>${d.current_price}</td>
                                 <td>{d.total_volume}</td>
                                 <td>{d.total_supply === null ? 'not available' : d.total_supply}</td>
                             </tr>
