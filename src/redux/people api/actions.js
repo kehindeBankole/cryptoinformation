@@ -1,10 +1,16 @@
-import { fetch, success, fail , nextpage} from './type'
+import { fetch, success, fail , nextpage , prevpage} from './type'
 import Axios from 'axios'
 
 
 const postperpae=5  
 
-export const changepage =()=>{
+export const prevapipage =()=>{
+    return{
+        type : prevpage
+    }
+}
+
+export const nextapipage =()=>{
     return{
         type : nextpage
     }

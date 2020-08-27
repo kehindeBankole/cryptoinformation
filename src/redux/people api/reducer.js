@@ -1,10 +1,10 @@
-import { fetch, success, fail , nextpage } from './type'
+import { fetch, success, fail , nextpage , prevpage } from './type'
 
 const init = {
     data: [],
     load: true,
     err: '',
-    currentpage : 1
+    currentpage : 1,
 }
 
 export const myReducer = (state = init, action) => {
@@ -27,7 +27,16 @@ export const myReducer = (state = init, action) => {
         case nextpage: return {
             ...state,
             data : [],
+            load:true,
+            err:'',
             currentpage: state.currentpage += 1
+        }
+        case prevpage: return {
+            ...state,
+            data : [],
+            load:true,
+            err:'',
+            currentpage: state.currentpage -= 1
         }
         default: return state
     }
